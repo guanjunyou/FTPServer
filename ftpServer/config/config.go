@@ -8,8 +8,9 @@ import (
 )
 
 type Configuration struct {
-	MySQL string      `yaml:"MySQL"`
-	Redis RedisConfig `yaml:"Redis"`
+	MySQL       string            `yaml:"MySQL"`
+	Redis       RedisConfig       `yaml:"Redis"`
+	VideoServer VideoServerConfig `yaml:"VideoServer"`
 }
 
 type RedisConfig struct {
@@ -20,7 +21,10 @@ type RedisConfig struct {
 }
 
 type VideoServerConfig struct {
-	Addr string `yaml:"Addr"`
+	Ip       string `yaml:"Ip"`
+	Host     string `yaml:"Host"`
+	User     string `yaml:"User"`
+	Password string `yaml:"Password"`
 }
 
 var Config Configuration
