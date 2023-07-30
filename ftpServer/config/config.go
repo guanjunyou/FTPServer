@@ -21,10 +21,12 @@ type RedisConfig struct {
 }
 
 type VideoServerConfig struct {
-	Ip       string `yaml:"Ip"`
-	Host     string `yaml:"Host"`
-	User     string `yaml:"User"`
-	Password string `yaml:"Password"`
+	Ip                   string `yaml:"Ip"`
+	Host                 string `yaml:"Host"`
+	User                 string `yaml:"User"`
+	Password             string `yaml:"Password"`
+	FTPServerIp          string `yaml:"FTPServerIp"`
+	FTPServerGetFilePort string `yaml:"FTPServerGetFilePort"`
 }
 
 var Config Configuration
@@ -38,8 +40,10 @@ var (
 	TokenTTL float64 = 3600
 	TokenKey string  = "token:"
 
-	//filter
-	WordDictPath = "../public/sensitiveDict.txt"
+	//dirPath
+	CommonFilePath = "/home/douyin"
+	VideoDir       = "videos"
+	PhotoDir       = "photos"
 )
 
 var MailPassword = os.Getenv("MailPassword")
