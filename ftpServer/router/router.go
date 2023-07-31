@@ -10,6 +10,6 @@ func InitRouter1(r *gin.Engine) {
 	r.Static("/static", "./public")
 
 	apiRouter := r.Group("/ftpServer")
-	apiRouter.GET("/upload/", controller.UploadFile)
+	apiRouter.POST("/upload/", controller.UploadFile)
 
 }
