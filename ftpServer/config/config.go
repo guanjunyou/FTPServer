@@ -38,7 +38,7 @@ var (
 	TokenKey string  = "token:"
 
 	//dirPath
-	CommonFilePath = "home/douyin/FTPServer"
+	CommonFilePath = "/home/douyin"
 	VideoDir       = "videos"
 	PhotoDir       = "photos"
 )
