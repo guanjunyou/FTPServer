@@ -21,7 +21,7 @@ func GetFileService() impl.FileServiceImpl {
 
 func UploadFile(c *gin.Context) {
 	file, err := c.FormFile("file")
-	fileType := c.Query("fileType") // 1 为视频 2 为图片
+	fileType := c.PostForm("fileType") // 1 为视频 2 为图片
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, models.Response{
 			StatusCode: 1,

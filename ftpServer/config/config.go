@@ -32,16 +32,13 @@ type VideoServerConfig struct {
 var Config Configuration
 
 var (
-	DefaultPage = "1"
-	DefaultSize = "20"
-	VideoCount  = 5
 
 	// redis
 	TokenTTL float64 = 3600
 	TokenKey string  = "token:"
 
 	//dirPath
-	CommonFilePath = "/home/douyin"
+	CommonFilePath = "home/douyin/FTPServer"
 	VideoDir       = "videos"
 	PhotoDir       = "photos"
 )
