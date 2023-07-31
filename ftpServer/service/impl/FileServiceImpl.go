@@ -26,5 +26,5 @@ func (fileService FileServiceImpl) SaveFile(c *gin.Context, file *multipart.File
 	if err != nil {
 		return "", err
 	}
-	return path.Join(config.Config.VideoServer.FTPServerIp+":"+config.Config.VideoServer.FTPServerGetFilePort, url), nil
+	return url, nil
 }

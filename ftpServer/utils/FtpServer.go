@@ -78,5 +78,5 @@ func SaveFileToFileSystem(c *gin.Context, file *multipart.FileHeader, targetDir 
 	if err2 != nil {
 		return "", err2
 	}
-	return dstPath, nil
+	return fileName, nil
 }
