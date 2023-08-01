@@ -33,7 +33,7 @@ func UploadFile(c *gin.Context) {
 	fileTypeInt, _ := strconv.ParseInt(fileType, 10, 64)
 	url, coverUrl, err1 := GetFileService().SaveFile(c, file, fileTypeInt)
 	if err1 != nil {
-		log.Printf(err.Error())
+		log.Printf(err1.Error())
 		c.JSON(http.StatusInternalServerError, models.Response{
 			StatusCode: 1,
 			StatusMsg:  "保存失败！",

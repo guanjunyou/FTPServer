@@ -31,7 +31,8 @@ func (fileService FileServiceImpl) SaveFile(c *gin.Context, file *multipart.File
 		return "", "", err
 	}
 	if fileType == 1 {
-		coverUrl, err1 := SaveCoverFile(savePath)
+		log.Println(path.Join(savePath, url))
+		coverUrl, err1 := SaveCoverFile(path.Join(savePath, url))
 		if err1 != nil {
 			return url, "", err1
 		}
@@ -45,9 +46,9 @@ func (fileService FileServiceImpl) SaveFile(c *gin.Context, file *multipart.File
 func SaveCoverFile(videoPath string) (string, error) {
 	var coverPath string
 	nextID := utils.NewSnowflake().NextID()
-	coverName := config.CommonCoverName + strconv.FormatInt(nextID, 10)
+	coverName := config.CommonCoverName + strconv.FormatInt(nextID, 10) + ".jpg"
 	coverPath = path.Join(config.CommonFilePath, config.PhotoDir, coverName)
-	cmd := exec.Command("ffmpeg", "-1", videoPath, "-ss", "00:00:01", "-vframes", "1", coverPath)
+	cmd := exec.Command("ffmpeg", "-i", videoPath, "-ss", "00:00:01", "-vframes", "1", coverPath)
 	err := cmd.Run()
 	if err != nil {
 		log.Println("截图失败", err)
