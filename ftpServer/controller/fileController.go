@@ -11,7 +11,8 @@ import (
 
 type FileUrlResponse struct {
 	models.Response
-	Url string
+	Url      string
+	CoverUrl string
 }
 
 func GetFileService() impl.FileServiceImpl {
@@ -30,7 +31,7 @@ func UploadFile(c *gin.Context) {
 		return
 	}
 	fileTypeInt, _ := strconv.ParseInt(fileType, 10, 64)
-	url, err1 := GetFileService().SaveFile(c, file, fileTypeInt)
+	url, coverUrl, err1 := GetFileService().SaveFile(c, file, fileTypeInt)
 	if err1 != nil {
 		log.Printf(err.Error())
 		c.JSON(http.StatusInternalServerError, models.Response{
@@ -44,7 +45,8 @@ func UploadFile(c *gin.Context) {
 			StatusCode: 0,
 			StatusMsg:  "保存成功",
 		},
-		Url: url,
+		Url:      url,
+		CoverUrl: coverUrl,
 	})
 
 }
