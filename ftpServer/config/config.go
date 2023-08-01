@@ -41,6 +41,9 @@ var (
 	CommonFilePath = "/home/douyin"
 	VideoDir       = "videos"
 	PhotoDir       = "photos"
+
+	//fileName
+	CommonCoverName = "cover"
 )
 
 var MailPassword = os.Getenv("MailPassword")
