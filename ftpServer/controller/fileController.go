@@ -11,8 +11,8 @@ import (
 
 type FileUrlResponse struct {
 	models.Response
-	Url      string
-	CoverUrl string
+	Url      string `json:"url"`
+	CoverUrl string `json:"cover_url"`
 }
 
 func GetFileService() impl.FileServiceImpl {
